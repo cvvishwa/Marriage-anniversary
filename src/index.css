@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global romantic styling and typography */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  @apply font-body text-slate-50 bg-slate-950 antialiased;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #f472b6, #a855f7);
+  border-radius: 9999px;
+}
+
+/* Ensure videos and images don't cause layout issues */
+video,
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Hide any dev overlay panels or toolbars */
+[data-overlay],
+[data-panel],
+iframe[src*="devtools"],
+iframe[src*="overlay"],
+div[class*="overlay"],
+div[class*="panel"],
+div[id*="overlay"],
+div[id*="panel"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
