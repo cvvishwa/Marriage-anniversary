@@ -26,10 +26,10 @@ function Counter() {
 
         <div className="mt-2 rounded-2xl bg-gradient-to-r from-pink-500 via-rose-400 to-purple-500 px-6 py-4 shadow-lg shadow-pink-500/40">
           <p className="text-sm font-medium text-slate-950 md:text-base">
-            We have been together for
+          every day with you still feels like
           </p>
           <p className="mt-1 font-display text-4xl text-slate-950 md:text-5xl">
-            {diffDays.toLocaleString()} days ❤️
+          Day 1 ❤️
           </p>
         </div>
 

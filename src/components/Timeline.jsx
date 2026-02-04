@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
 
 const EVENTS = [
-  // {
-  //   title: "We started dating",
-  //   date: "2015",
-  //   description:
-  //     "Somewhere between random conversations, late-night chats, and silly fights, two best friends slowly turned into something more."
-  // },
+  {
+    title: "We started dating",
+    date: "Few years ago",
+    description:
+      "Somewhere between random conversations, late-night chats, and silly fights, two best friends slowly turned into something more."
+  },
   {
     title: "Our wedding day",
     date: "05 Feb 2022",

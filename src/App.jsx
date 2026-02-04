@@ -26,14 +26,52 @@ function App() {
     window.scrollTo(0, 0);
   }, []);
 
-  // Initialize background music once on mount
+  // Initialize background music once on mount and try to autoplay
   useEffect(() => {
     // Romantic instrumental from local file
     audioRef.current = new Audio(bgMusic);
     audioRef.current.loop = true;
     audioRef.current.volume = 0.2;
 
+    // Try to autoplay music when page loads
+    const tryAutoplay = async () => {
+      if (audioRef.current) {
+        try {
+          await audioRef.current.play();
+          setIsAudioPlaying(true);
+          setHasUserInteracted(true);
+        } catch (error) {
+          // Autoplay blocked by browser - will play on first user interaction
+          console.log("Autoplay blocked, will play on first interaction");
+          
+          // Set up one-time click handler to start music
+          const startMusicOnInteraction = async () => {
+            if (audioRef.current) {
+              // Check if already playing to avoid duplicate starts
+              if (audioRef.current.paused) {
+                try {
+                  await audioRef.current.play();
+                  setIsAudioPlaying(true);
+                  setHasUserInteracted(true);
+                } catch (err) {
+                  // Still blocked, user can use the button
+                }
+              }
+            }
+          };
+          
+          // Listen for first click or touch
+          document.addEventListener('click', startMusicOnInteraction, { once: true });
+          document.addEventListener('touchstart', startMusicOnInteraction, { once: true });
+        }
+      }
+    };
+
+    // Small delay to ensure audio is ready
+    const timer = setTimeout(tryAutoplay, 500);
+
     return () => {
+      clearTimeout(timer);
       if (audioRef.current) {
         audioRef.current.pause();
       }
