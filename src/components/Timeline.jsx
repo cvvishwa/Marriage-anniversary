@@ -15,7 +15,7 @@ const EVENTS = [
   },
   {
     title: "Our first trip together",
-    date: "Dec 2024",
+    date: "Nov 2022",
     description:
       "From airport selfies to late-night talks, every mile we travelled turned into a memory I never want to forget."
   },
